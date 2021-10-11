@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+//usar slug como parte de la url
+/*Route::get('/{slug}', function($slug){
+    $post = App\Post::whereSlug($slug)->first();
+
+    return view('post', ['post' => $post]);
+});*/

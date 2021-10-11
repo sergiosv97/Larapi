@@ -27,8 +27,16 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 //4.update a single (PUT/PATCH) /api/posts{id}
 //5. delete (DELETE) /api/posts/{id}
 
-Route::resource('posts','PostController');
+//Route::resource('posts','PostController');
+Route::apiResource('posts','PostController'); //sin el metodo create
 
+
+/*Route::prefix('v1')->group(function() {
+    Route::apiResource('posts','PostController');
+});*/
+
+//this will also return a post object
+//Route::get('comments/'{commentId})
 
 //to create a resource (posts) in laravel
 //1. create the database and migrations
@@ -37,3 +45,5 @@ Route::resource('posts','PostController');
 //2.5 create a service? Eloquent ORM
 //3. create a controller to go get info from the database
 //4. return that info
+
+//php artisan make:model Dog --migration --controller --api
